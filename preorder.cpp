@@ -26,13 +26,13 @@ public:
         stack<TreeNode*> stk;
         TreeNode* node = root;
         if(root == nullptr) return res;
-        while(node != nullptr || !stk.empty()){
+        while(node != nullptr || !stk.empty()){ //节点非空注意方法
             while(node != nullptr){
                 res.push_back(node -> val);
                 stk.push(node);
                 node = node -> left;
             }
-            node = stk.top();
+            node = stk.top();   //C++pop不能一边弹出一边记录，先记录后弹出
             stk.pop();
             node = node -> right;
         }
